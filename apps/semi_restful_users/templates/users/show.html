@@ -1,0 +1,15 @@
+{% extends './layout.html' %}
+{% block title %}Users New{% endblock %}
+
+{% block body %}
+    <h1>Show User</h1>
+    <div class="row">
+        <div class="wrapper">
+            <h1>User ID: {{ user.id }}</h1>
+            <h3>Full Name: {{ user.first_name }} {{ user.last_name }}</h3>
+            <h3>Email: {{ user.email }}</h3>
+            <h3>Created at: {{ user.created_at }}</h3>
+            <h3><a class="btn btn-link" href="/users/{{ user.id }}/edit">Edit</a>  |  <a class="btn btn-link" href="/users/{{ user.id }}/delete">Delete</a></h3>
+        </div>
+    </div>
+{% endblock %}

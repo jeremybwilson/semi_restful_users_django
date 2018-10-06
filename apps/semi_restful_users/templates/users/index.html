@@ -1,0 +1,25 @@
+{% extends './layout.html' %}
+{% block title %}Courses Index{% endblock %}
+
+{% block body %}
+    <h1>Users</h1>
+    <div class="row header">
+        <div class="col-3">Course Name</div>
+        <div class="col-3">Course Description</div>
+        <div class="col-3">Date Added</div>
+        <div class="col-3">Created At</div>
+    </div>
+    {% for user in users %}
+    <div class="row">
+        <div class="col-3">{{ course.name }}</div>
+        <div class="col-3">{{ course.description }}</div>
+        <div class="col-3">{{ course.created_at }}</div>
+        <div class="col-3 "><a class="btn btn-link" title="Delete course" href="/{{ course.id }}/destroy">remove</a></div>
+
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <a href="{% url 'users:add' %}" title="Add new user">Add new user</a>
+    </div>
+{% endblock %}

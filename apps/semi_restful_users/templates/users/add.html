@@ -1,0 +1,46 @@
+{% extends './layout.html' %}
+{% block title %}Users New{% endblock %}
+
+{% block body %}
+    <div class="row">
+    <h1>Add New User</h1>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="row">
+        <form class="customform" action="{% url 'users:create' %}" method="POST">
+            {% csrf_token %}
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" width="30">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" width="30">
+            <label for="email">Email:</label>
+            <input type="email" name="email" width="30">
+            <label for="password">Password:</label>
+            <input type="password" name="password" width="30">
+            <label for="confirm_password">Confirm password:</label>
+            <input type="password" name="confirm_password" width="30">
+            <button type="submit" class="btn btn-primary btn-sm">Create</button>
+        </form>
+    </div>
+    <div class="row">
+    {% if request.session.logged_in == False %}
+        <form class="customform" action="{% url 'users:login' %}" method="POST">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="email" name="email" width="30">
+            <label for="password">Password:</label>
+            <input type="password" name="password" width="30">
+            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+        </form>       
+    {% endif %}
+    <a href="{% url 'users:index' %}" title="Go back">Go back</a>
+    </div>  
+{% endblock %}

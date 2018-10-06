@@ -1,0 +1,54 @@
+.wrapper {
+    margin: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 900px;
+    padding: 50px;
+}
+
+.customform input{
+    width: 200px;
+}
+
+.customform label, .customform input {
+    display:block;
+}
+
+.customform {
+    display: inline;
+}
+
+ul.topnav{
+    list-style-type: none;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.topnav li, .showuser {
+    display: inline-block;
+    margin-left: 0;
+}
+
+.messages, .usertable, h1, h2, h3, h4, h5, form {
+    width: 100%;
+}
+
+.btn.btn-primary {
+    margin-top: 5px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.red, .error {
+    color:red;
+}
+
+.green, .success {
+    color: green;
+}

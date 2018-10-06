@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>User Dashboard</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/semi_restful_users/css/styles.css' %}" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <ul class="topnav">
+                    {% if request.session.logged_in != False %}  <!-- This works  -->
+                    <li>
+                        <span>Welcome {{ first_name }}</span> | 
+                        <a href="{% url 'users:logout' %}" class="button">Logout</a> | 
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'users:index' %}" class="button">Users</a>
+                    </li>
+                </ul>
+            </div>
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
